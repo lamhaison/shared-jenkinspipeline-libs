@@ -53,6 +53,27 @@ pipeline {
 }
 ```
 
+## Send notification to telegram
+### How to get the channel ID
+```
+Step 1: Create a private channel
+Step 2: Add the bot(@alert_prd_bot) to the channel
+Step 3: Use the API below to get the ID of the channel. It has format like tat -100xxx
+step 4: check id by
+curl -i https://api.telegram.org/bot${YOUR_TOKEN}/getUpdates
+```
+### Set envs
+* CI_CD_CHAT_ID_DEV: Your channel ID or group Telegram ID
+* CI_CD_CHAT_ID_PRD: Your channel ID or group Telegram ID
+### Set credential
+* ID: telegram_token
+* Secret: Your bot token (don't add prefix bot in the secret token)
+* Description: Without bot prefix
+* Kind: Secret text
+
+### Jenkinsfile
+* Please check jenkinsfile-examples/sending_telegram_example.groovy
+
 ## docs
 ```
 https://www.tutorialworks.com/jenkins-shared-library/
